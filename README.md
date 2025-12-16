@@ -1,4 +1,4 @@
-# Hello ECR App
+# Hello Node App
 
 A simple Node.js REST API built with Express.
 
