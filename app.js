@@ -11,7 +11,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'healthy' });
+  res
+    .status(200)
+    .set({
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+      'Surrogate-Control': 'no-store'
+    })
+    .json({ status: 'healthy' });
 });
 
 app.listen(PORT, '0.0.0.0', () => {
